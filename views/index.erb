@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>An Introduction to Web Components  |  Ruth John</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <section>
+            <h1>Web Components</h1>
+            <p>AKA magic!</p>
+          </section>
+
+          <section>
+            <h2>Hello</h2>
+            <p class="fragment roll-in">I'm Ruth</p>
+            <p class="fragment roll-in">UX, Design, Front End Dev</p>
+            <p class="fragment roll-in">@rumyra</p>
+            <p class="fragment roll-in">Work in The Lab at O2</p>
+            <p class="fragment roll-in"><a href=""></a></p>
+          </section>
+
+          <section>
+            <h1>But what is a web component?</h1>
+            <p class="fragment roll-in">Sandboxed Reuseable DOM Structure</p>
+            <p class="fragment roll-in">You what now?</p>
+          </section>
+
+          <section>
+            <h1>Imagine if you will</h1>
+            <p data-height="375" data-theme-id="1345" data-slug-hash="mGdur" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/Rumyra/pen/mGdur'>12 Devs Interactive Logo</a> by Rumyra (<a href='http://codepen.io/Rumyra'>@Rumyra</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+            <script async src="//codepen.io/assets/embed/ei.js"></script>
+          </section>
+
+          <section>
+            <p><code>&lt;twelve-devs-logo><br />&lt;/twelve-devs-logo></code></p>
+          </section>
+
+          <section>
+            <h1>Templates</h1>
+            <p class="fragment roll-in"><code>&lt;template></code></p>
+            <p class="fragment roll-in">Content to be used later</p>
+            <p class="fragment roll-in">Parsed but inert</p>
+            <p class="fragment roll-in"></p>
+          </section>
+
+          <section>
+            <pre><code data-trim contenteditable>
+<template id="twelve-devs-nav">
+  <div class="twelve-devs-nav">
+    <div class="badge-outer">
+      <b></b>
+      <b></b>
+      <b></b>
+      <b></b>
+
+      <b></b>
+      <b></b>
+      <b></b>
+      <b></b>
+
+      <b></b>
+      <b></b>
+      <b></b>
+    </div>
+    <nav>
+      <a href="/home">
+        <span>1</span>
+        <span>2</span>
+        <span>d</span>
+        <span>e</span>
+        <span>v</span>
+        <span>s</span>
+        <span>.</span>
+        <span>c</span>
+        <span>o</span>
+        <span>.</span>
+        <span>u</span>
+        <span>k</span>
+      </a>
+      <a href="/workshops">
+        <span>W</span>
+        <span>o</span>
+        <span>r</span>
+        <span>k</span>
+        <span>s</span>
+        <span>h</span>
+        <span>o</span>
+        <span>p</span>
+        <span>s</span>
+      </a>
+      <a href="/articles">
+        <span>A</span>
+        <span>r</span>
+        <span>t</span>
+        <span>i</span>
+        <span>c</span>
+        <span>l</span>
+        <span>e</span>
+        <span>s</span>
+      </a>
+      <a href="/events">
+        <span>E</span>
+        <span>v</span>
+        <span>e</span>
+        <span>n</span>
+        <span>t</span>
+        <span>s</span>
+      </a>
+      <a href="/talks">
+        <span>T</span>
+        <span>a</span>
+        <span>l</span>
+        <span>k</span>
+        <span>s</span>
+      </a>
+    </nav>
+    <div class="badge-inner">
+      <h1>12</h1>
+    </div>
+  </div>
+</template>
+            </code></pre>
+          </section>
+
+          <section>
+            <h1>Content API</h1>
+            <pre><code data-trim contenteditable>
+//target template
+var logoTemplate = document.querySelector('#twelve-devs-logo');
+//get & clone content
+var logoContent = logoTemplate.content.cloneNode(true);
+//append to seen element
+document.querySelector('#show-content').appendChild(logoContent);
+            </code></pre>
+          </section>
+
+          <section>
+            <h1>The Shadow Dom</h1>
+          </section>
+          <section data-background="images/orko.gif">
+            <h1>Magic</h1>
+            <h2></h2>
+            <p class="fragment roll-in"></p>
+          </section>
+
+          <section>
+            <h1>Content API</h1>
+            <h2></h2>
+            <p class="fragment roll-in"></p>
+          </section>
+          <section>
+            <h1>Content API</h1>
+            <h2></h2>
+            <p class="fragment roll-in"></p>
+          </section>
+          <section>
+            <h1>Content API</h1>
+            <h2></h2>
+            <p class="fragment roll-in"></p>
+          </section>
+          <section>
+            <h1>Content API</h1>
+            <h2></h2>
+            <p class="fragment roll-in"></p>
+          </section>
+          <section>
+            <h1>Content API</h1>
+            <h2></h2>
+            <p class="fragment roll-in"></p>
+          </section>
+
+          <section>
+            <pre><code data-trim contenteditable>
+var logoTemplate = document.querySelector('#twelve-devs-logo');
+var logoContent = logoTemplate.content.cloneNode(true);
+document.querySelector('#show-content').appendChild(logoContent);
+            </code></pre>
+          </section>
+
+        </section>
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        theme: 'moon',
+        // transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+        transition: 'linear',
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>

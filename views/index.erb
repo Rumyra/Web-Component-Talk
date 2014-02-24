@@ -169,6 +169,7 @@ document.querySelector('#show-content').appendChild(logoContent);
           <section>
             <h1>The Shadow Dom</h1>
           </section>
+
           <section data-background="images/orko.gif">
             <h1>Magic</h1>
             <h2></h2>
@@ -176,39 +177,88 @@ document.querySelector('#show-content').appendChild(logoContent);
           </section>
 
           <section>
-            <h1>Content API</h1>
-            <h2></h2>
-            <p class="fragment roll-in"></p>
-          </section>
-          <section>
-            <h1>Content API</h1>
-            <h2></h2>
-            <p class="fragment roll-in"></p>
-          </section>
-          <section>
-            <h1>Content API</h1>
-            <h2></h2>
-            <p class="fragment roll-in"></p>
-          </section>
-          <section>
-            <h1>Content API</h1>
-            <h2></h2>
-            <p class="fragment roll-in"></p>
-          </section>
-          <section>
-            <h1>Content API</h1>
-            <h2></h2>
-            <p class="fragment roll-in"></p>
+            <h1>We need</h1>
+            <p class="fragment roll-in">Shadow Host</p>
+            <p class="fragment roll-in">Shadow Root</p>
+            <pre><code data-trim contenteditable>
+//get logo mark up
+var logoTemplate = document.querySelector('#twelve-devs-logo');
+//clone it (content api)
+var logoContent = logoTemplate.content.cloneNode(true);
+//create shadow host
+var shadowHost = document.querySelector('#show-content');
+//create shadow root
+var shadowRoot = shadowHost.webkitCreateShadowRoot();
+//add mark up to root
+shadowRoot.appendChild(logoContent);
+</code></pre>
           </section>
 
           <section>
+            <h1>Hang on a minute...</h1>
+            <p class="fragment roll-in">
+              <img src="images/shadow-dom-no-style.png" />
+            </p>
+            <p class="fragment roll-in">^^ Shadow Boundary</p>
+          </section>
+
+          <section>
+            <p><code>&lt;div id="logo"></code></p>
+          </section>
+
+          <section>
+            <h1>Custom Elements FTW!</h1>
+            <p class="fragment roll-in">Enable Chrome flag 'Experimental Web Platform Features'</p>
+            <p class="fragment roll-in">Creates a prototype</p>
+            <p class="fragment roll-in">Register the element</p>
+          </section>
+
+          <section>
+            <h1>Create HTML Element Prototype</h1>
             <pre><code data-trim contenteditable>
-var logoTemplate = document.querySelector('#twelve-devs-logo');
-var logoContent = logoTemplate.content.cloneNode(true);
-document.querySelector('#show-content').appendChild(logoContent);
+var twelveDevsNavProto = Object.create(HTMLElement.prototype);
             </code></pre>
           </section>
 
+          <section>
+            <h1>Create Callback</h1>
+            <p><code>createCallback</code> method</p>
+            <pre><code data-trim contenteditable>
+twelveDevsNavProto.createdCallback = function() {
+    var shadowRoot = this.webkitCreateShadowRoot();
+    shadowRoot.appendChild(logoContent);
+};
+            </code></pre>
+          </section>
+
+          <section>
+            <h1>Register Element</h1>
+            <pre><code data-trim contenteditable>
+var twelveDevsNavElement = document.register('twelve-devs-nav', {prototype: twelveDevsNavProto} );
+            </code></pre>
+          </section>
+
+          <section>
+            <p><code>&lt;twelve-devs-nav>&lt;/twelve-devs-nav></code></p>
+          </section>
+
+          <section data-background="images/orko.gif">
+            <h1>Magic</h1>
+            <h2></h2>
+            <p class="fragment roll-in"></p>
+          </section>
+
+          <section>
+            <h2>All the info!</h2>
+            <p>This is going to change</p>
+            <p class="fragment roll-in">I wrote it all down <a href="http://12devsofxmas.co.uk/2013/12/day-4-lets-make-a-web-component/">http://12devsofxmas.co.uk/2013/12/day-4-lets-make-a-web-component/</a></p>
+            <p class="fragment roll-in"><a href="http://mozilla.github.io/brick/">Mozilla Brick</a></p>
+            <p class="fragment roll-in"><a href="http://www.polymer-project.org/">Google Polymer</a></p>
+            <p class="fragment roll-in"><a href="https://github.com/sole/WebComponentsMonkeyPatch">Mokey Patch Polyfill</a></p>
+            <h2 class="fragment roll-in">Thank you</h2>
+            <p class="fragment roll-in">@rumyra</p>
+
+          </section>
         </section>
       </div>
 

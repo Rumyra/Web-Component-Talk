@@ -48,7 +48,6 @@
             <p class="fragment roll-in">UX, Design, Front End Dev</p>
             <p class="fragment roll-in">@rumyra</p>
             <p class="fragment roll-in">Work in The Lab at O2</p>
-            <p class="fragment roll-in"><a href=""></a></p>
           </section>
 
           <section>
@@ -180,7 +179,7 @@ document.querySelector('#show-content').appendChild(logoContent);
             <h1>We need</h1>
             <p class="fragment roll-in">Shadow Host</p>
             <p class="fragment roll-in">Shadow Root</p>
-            <pre><code data-trim contenteditable>
+            <pre class="fragment roll-in"><code data-trim contenteditable>
 //get logo mark up
 var logoTemplate = document.querySelector('#twelve-devs-logo');
 //clone it (content api)
@@ -234,7 +233,7 @@ twelveDevsNavProto.createdCallback = function() {
           <section>
             <h1>Register Element</h1>
             <pre><code data-trim contenteditable>
-var twelveDevsNavElement = document.register('twelve-devs-nav', {prototype: twelveDevsNavProto} );
+var twelveDevsNavElement = document.registerElement('twelve-devs-nav', {prototype: twelveDevsNavProto} );
             </code></pre>
           </section>
 
